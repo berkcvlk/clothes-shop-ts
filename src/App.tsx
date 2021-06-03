@@ -1,10 +1,18 @@
-import './App.css';
+import { Route } from "react-router";
+import routes, { IRoute } from "./routes";
 
-function App() {
+import Layout from "./layouts/Layout";
+
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <Layout>
+      {routes.map((e: IRoute, i: number) => (
+        <Route key={i} path={e.path} exact={e.isExact}>
+          {e.component}
+        </Route>
+      ))}
+    </Layout>
   );
-}
+};
 
 export default App;
