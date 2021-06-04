@@ -1,4 +1,4 @@
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation";
 import Logo from "../UI/Logo";
 import { Wrapper } from "./styles";
 
