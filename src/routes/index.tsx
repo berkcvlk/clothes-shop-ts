@@ -1,6 +1,4 @@
-import Products from "../pages/Products";
-import Favorites from "../pages/Favorites";
-import Cart from "../pages/Cart";
+import { Products, Favorites, Cart } from "../pages";
 
 export interface IRoute {
   path: string;
