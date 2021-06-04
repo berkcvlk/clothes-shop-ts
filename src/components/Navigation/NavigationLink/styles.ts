@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 // Navigation link inherited from
 // React Router NavLink component to style
-export const NavigationLink = styled(NavLink)`
+const NavigationLink = styled(NavLink)`
   font-size: 18px;
   font-weight: 600;
 
@@ -20,3 +20,5 @@ export const NavigationLink = styled(NavLink)`
     margin-left: 35px;
   }
 `;
+
+export default NavigationLink;

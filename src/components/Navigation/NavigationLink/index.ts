@@ -1,1 +1,1 @@
-export { NavigationLink as default } from "./styles";
+export { default } from "./styles";
