@@ -1,5 +1,4 @@
-import Title from "../../components/UI/Title";
-import { Wrapper, Content } from "./styles";
+import { Wrapper, Content, Title } from "./styles";
 
 interface Props {
   title: string;
