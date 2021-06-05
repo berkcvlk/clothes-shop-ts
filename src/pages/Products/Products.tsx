@@ -1,4 +1,4 @@
-import ProductList from "../../components/ProductList/ProductList";
+import ProductList from "../../components/Product/ProductList";
 import Main from "../../layouts/Main";
 
 const Products = () => {
