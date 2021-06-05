@@ -1,16 +1,10 @@
-import { Route } from "react-router";
-import routes, { IRoute } from "./routes";
-
 import Layout from "./layouts/Layout";
+import Routes from "./layouts/Routes";
 
 const App = () => {
   return (
     <Layout>
-      {routes.map((e: IRoute, i: number) => (
-        <Route key={i} path={e.path} exact={e.isExact}>
-          {e.component}
-        </Route>
-      ))}
+      <Routes />
     </Layout>
   );
 };
