@@ -8,15 +8,13 @@
   --text-color: #4c4c4c;
 }
 
-html {
-  /** to prevent tilt on scroll visible */
-  overflow-y: scroll;
-}
-
 body {
   margin: 0;
   font-family: "Sarabun", sans-serif;
   color: var(--text-color);
+
+  /** to prevent tilt on scroll visible */
+  overflow-y: scroll;
 }
 
 *,
