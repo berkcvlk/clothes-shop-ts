@@ -11,11 +11,6 @@ const ProductOverlay: React.FC<Props> = ({ itemId }) => {
   // we will use it later for showing over the background
   const location = useLocation();
 
-  // Make the document non-scrollable
-  const preventScroll = () => {
-    document.body.style.overflowY = "hidden";
-  };
-
   return (
     <Backdrop>
       <WrapperLink
@@ -26,7 +21,6 @@ const ProductOverlay: React.FC<Props> = ({ itemId }) => {
           pathname: `/quickview/${itemId}`,
           state: { background: location },
         }}
-        onClick={preventScroll}
       >
         <SpanFirst>Click To</SpanFirst>
         <SpanLast>Quick View</SpanLast>

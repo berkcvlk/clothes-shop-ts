@@ -23,19 +23,19 @@ const ProductListItem: React.FC<Props> = ({
   item: { id, title, description, price },
   isFavorite,
 }) => {
-  const [isMouseEntered, setIsMouseEntered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const onMouseOverHandler = () => {
-    setIsMouseEntered(true);
+    setIsHovered(true);
   };
 
   const onMouseLeaveHandler = () => {
-    setIsMouseEntered(false);
+    setIsHovered(false);
   };
 
   // Render according to mouse event
   // Probably this will change later
-  const quickViewOverlay = isMouseEntered && <ProductOverlay itemId={id} />;
+  const quickViewOverlay = isHovered && <ProductOverlay itemId={id} />;
 
   // Render according to favorite
   // Probably, this will change later, too
