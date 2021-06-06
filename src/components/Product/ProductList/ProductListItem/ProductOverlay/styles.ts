@@ -14,7 +14,7 @@ export const Backdrop = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: rgba(248, 248, 248, 0.85);
+  background-color: rgba(248, 248, 248, 0.75);
   backdrop-filter: blur(2px);
 `;
 
@@ -28,10 +28,14 @@ export const WrapperLink = styled(Link)`
 `;
 
 export const SpanFirst = styled.span`
+  color: #818181;
+
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
 
   text-transform: uppercase;
+
+  margin-bottom: -5px;
 `;
 
 export const SpanLast = styled.span`

@@ -6,7 +6,7 @@ interface Props {
   itemId: string;
 }
 
-const Overlay: React.FC<Props> = ({ itemId }) => {
+const ProductOverlay: React.FC<Props> = ({ itemId }) => {
   // Use location hook to get current location which
   // we will use it later for showing over the background
   const location = useLocation();
@@ -35,4 +35,4 @@ const Overlay: React.FC<Props> = ({ itemId }) => {
   );
 };
 
-export default Overlay;
+export default ProductOverlay;
