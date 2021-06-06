@@ -6,13 +6,7 @@ import ProductOverlay from "./ProductOverlay";
 import { Image, Detail, Title, Description, Price, Badge } from "./styles";
 
 import { images } from "../../../../utils/image";
-
-interface IProduct {
-  id: string;
-  title: string;
-  description: string;
-  price: string;
-}
+import { IProduct } from "../../../../types/common";
 
 interface Props {
   item: IProduct;
