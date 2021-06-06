@@ -8,8 +8,6 @@ const Modal: React.FC = ({ children }) => {
   const history = useHistory();
 
   const goBackHandler = () => {
-    // Make the document scrollable again
-    document.body.style.overflowY = "scroll";
     history.goBack();
   };
 
