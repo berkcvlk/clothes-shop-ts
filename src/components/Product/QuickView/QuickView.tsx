@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 
-import Button from "../../UI/Button/Button";
-import Modal from "../../UI/Modal/Modal";
+import Button from "../../UI/Button";
+import Modal from "../../UI/Modal";
 import * as s from "./styles";
 
 import { images } from "../../../utils/image";
@@ -14,7 +14,7 @@ const QuickView = () => {
       <s.Wrapper>
         <s.ImageContainer>
           <s.Image src={images(id, "320")} alt="title" />
-          <s.AddFavoriteButton>Add to Fasorites</s.AddFavoriteButton>
+          <s.AddFavoriteButton>Add to Favorites</s.AddFavoriteButton>
         </s.ImageContainer>
         <s.Detail>
           <s.Title>T-Shirt with Irregular Collar</s.Title>
