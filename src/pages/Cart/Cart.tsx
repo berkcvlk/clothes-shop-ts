@@ -1,30 +1,22 @@
-import styled from "styled-components";
-
 import Main from "../../layouts/Main";
+import CartList from "../../components/Cart/CartList";
+import Total from "../../components/Cart/Total";
+
+import { CartListContainer, TotalContainer, Wrapper } from "./styles";
 
 const Cart = () => {
   return (
     <Main title="Shopping Cart">
       <Wrapper>
-        <CartListContainer />
-        <TotalContainer />
+        <CartListContainer>
+          <CartList />
+        </CartListContainer>
+        <TotalContainer>
+          <Total />
+        </TotalContainer>
       </Wrapper>
     </Main>
   );
 };
-
-const Wrapper = styled.div`
-  display: flex;
-
-  height: 200px;
-`;
-
-const CartListContainer = styled.div`
-  flex: 75%;
-`;
-
-const TotalContainer = styled.div`
-  flex: 25%;
-`;
 
 export default Cart;
