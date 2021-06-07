@@ -5,9 +5,6 @@ export const Wrapper = styled.div`
 `;
 
 export const CartListContainer = styled.div`
-  display: grid;
-  row-gap: 20px;
-
   width: 75%;
 `;
 
