@@ -31,6 +31,11 @@ export const Price = styled.span`
 
 export const Badge = styled.span`
   position: absolute;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
   top: 20px;
   left: 20px;
 
@@ -39,7 +44,6 @@ export const Badge = styled.span`
   border-radius: 50%;
 
   text-align: center;
-  line-height: 1.8;
 
   background-color: var(--faded-color);
 `;
