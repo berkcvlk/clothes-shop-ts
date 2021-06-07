@@ -1,6 +1,9 @@
 import { createContext, useCallback, useEffect, useState } from "react";
+
 import { ICartItem } from "../../types";
 import { INITIAL_STATE } from "./initial";
+
+import { incrementAmount, decrementAmount } from "../../utils/cart";
 
 // Contains
 // items: ICartItem - list of cart
@@ -14,25 +17,14 @@ const Provider: React.FC = ({ children }) => {
   const [total, setTotal] = useState<number>(0);
 
   const onAddHandler = (i: ICartItem) => {
-    const hasItem = cartList.some((e) => e.id === i.id);
+    const item = cartList.find((e) => e.id === i.id);
 
-    if (!hasItem) {
+    if (!item) {
       setCartList((prev) => [...prev, i]);
       return;
     }
 
-    const list = cartList.map((e) => {
-      if (e.id === i.id) {
-        return {
-          ...e,
-          amount: e.amount + 1,
-        };
-      }
-
-      return e;
-    });
-
-    setCartList(list);
+    setCartList(incrementAmount(cartList, i.id));
   };
 
   const onRemoveHandler = (id: string) => {
@@ -47,25 +39,14 @@ const Provider: React.FC = ({ children }) => {
       return;
     }
 
-    setCartList(
-      cartList.map((e) => {
-        if (e.id === id) {
-          return {
-            ...e,
-            amount: e.amount - 1,
-          };
-        }
-
-        return e;
-      })
-    );
+    setCartList(decrementAmount(cartList, id));
   };
 
-  const onCalculateTotal = useCallback(() => {
+  const calculateTotal = useCallback(() => {
     return cartList.reduce((t, c) => t + c.amount * c.price, 0);
   }, [cartList]);
 
-  useEffect(() => setTotal(onCalculateTotal()), [cartList, onCalculateTotal]);
+  useEffect(() => setTotal(calculateTotal()), [calculateTotal]);
 
   return (
     <CartContext.Provider
