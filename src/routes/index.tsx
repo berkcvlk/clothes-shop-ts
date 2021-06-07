@@ -1,4 +1,4 @@
-import { Products, Favorites, Cart } from "../pages";
+import { Home, Favorites, Cart } from "../pages";
 
 export interface IRoute {
   id: number;
@@ -24,7 +24,7 @@ const routes: IRoute[] = [
     id: 3,
     path: "/",
     isExact: true,
-    component: <Products />,
+    component: <Home />,
   },
 ];
 

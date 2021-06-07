@@ -4,7 +4,7 @@ import { ProductContext } from "../../contexts/Product";
 import ProductList from "../../components/Product/ProductList";
 import Main from "../../layouts/Main";
 
-const Products = () => {
+const Home = () => {
   const { items } = useContext(ProductContext);
 
   return (
@@ -14,4 +14,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Home;
