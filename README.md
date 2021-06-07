@@ -1,10 +1,11 @@
 # Clothes Shop App
 
-## 🔗 [Live not avaliable for now]()
+## 🔗 [Live](https://peaceful-hermann-214b07.netlify.app/)
 
 ## 🧰 Toolbox
   - Create React App (Typescript)
   - Mockapi
+  - Axios
   - React Router
   - Styled Components
   - Framer Motion
