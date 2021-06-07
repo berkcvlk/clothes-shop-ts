@@ -1,27 +1,26 @@
-import Amount from "./Amount";
-import {
-  Subtotal,
-  Detail,
-  DetailBody,
-  DetailImage,
-  DetailPrice,
-  DetailTitle,
-  Grid,
-} from "./styles";
+import { ICartItem } from "../../../../types";
+import { images } from "../../../../utils/image";
 
-const CartListItem = () => {
+import Amount from "./Amount";
+import * as s from "./styles";
+
+interface Props {
+  item: ICartItem;
+}
+
+const CartListItem: React.FC<Props> = ({ item }) => {
   return (
-    <Grid>
-      <Detail>
-        <DetailImage src="/assets/images/products/120/1001.png" />
-        <DetailBody>
-          <DetailTitle>Contrast Print T-Shirt</DetailTitle>
-          <DetailPrice>$69.99</DetailPrice>
-        </DetailBody>
-      </Detail>
-      <Amount />
-      <Subtotal>$69.99</Subtotal>
-    </Grid>
+    <s.Grid>
+      <s.Detail>
+        <s.DetailImage src={images(item.id, "120")} />
+        <s.DetailBody>
+          <s.DetailTitle>{item.title}</s.DetailTitle>
+          <s.DetailPrice>{item.price}</s.DetailPrice>
+        </s.DetailBody>
+      </s.Detail>
+      <Amount item={item} />
+      <s.Subtotal>{`$${(item.price * item.amount).toFixed(2)}`}</s.Subtotal>
+    </s.Grid>
   );
 };
 
