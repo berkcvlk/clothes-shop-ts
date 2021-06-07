@@ -8,5 +8,9 @@ const IconButton = styled(Button)`
 
   padding: 1px;
   border-radius: 15px;
-`
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+`;
 export default IconButton;

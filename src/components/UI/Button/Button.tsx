@@ -9,14 +9,25 @@ const Button = styled.button<{ theme?: "primary" }>`
   font-weight: 700;
 
   padding: 10px 45px;
-  
+
   cursor: pointer;
   border-radius: 5px;
-  
+
   background-color: ${({ theme }) =>
     theme === "primary" ? "var(--primary-color)" : "#e5e5e5"};
   color: ${({ theme }) =>
     theme === "primary" ? "white" : "var(--text-color)"};
+
+  &:hover {
+    background: ${({ theme }) => (theme === "primary" ? "#ff9d5e" : "#ebebeb")};
+  }
+
+  &:active,
+  &.active {
+    transform: scale(0.96);
+  }
+
+  transition: all 0.1s;
 `;
 
 export default Button;
