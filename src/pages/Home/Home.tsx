@@ -6,7 +6,6 @@ import Main from "../../layouts/Main";
 
 const Home = () => {
   const { items } = useContext(ProductContext);
-
   return (
     <Main title="New Collection">
       <ProductList list={items} />
