@@ -6,16 +6,16 @@ import ProductOverlay from "./ProductOverlay";
 import { Image, Detail, Title, Description, Price, Badge } from "./styles";
 
 import { images } from "../../../../utils/image";
-import { IProduct } from "../../../../types/common";
+import { IProduct } from "../../../../types";
 
 interface Props {
   item: IProduct;
-  isFavorite?: boolean;
+  fav?: boolean;
 }
 
 const ProductListItem: React.FC<Props> = ({
   item: { id, title, description, price },
-  isFavorite,
+  fav,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,7 +33,7 @@ const ProductListItem: React.FC<Props> = ({
 
   // Render according to favorite
   // Probably, this will change later, too
-  const badge = isFavorite && (
+  const badge = fav && (
     <Badge>
       <Heart />
     </Badge>
@@ -41,8 +41,8 @@ const ProductListItem: React.FC<Props> = ({
 
   return (
     <Card onMouseOver={onMouseOverHandler} onMouseLeave={onMouseLeaveHandler}>
-      {quickViewOverlay}
       {badge}
+      {quickViewOverlay}
       <Image src={images(id, "320")} alt={title} />
       <Detail>
         <Title>{title}</Title>
