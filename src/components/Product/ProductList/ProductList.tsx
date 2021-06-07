@@ -1,32 +1,18 @@
-import { useEffect, useState } from "react";
+import { IProduct } from "../../../types";
 
 import ProductListItem from "./ProductListItem";
 import { Grid } from "./styles";
 
-const ProductList = () => {
-  const [productList, setProductList] = useState([]);
-  const [loading, setLoading] = useState(false);
+interface Props {
+  list: IProduct[];
+  fav?: boolean;
+}
 
-  useEffect(() => {
-    setLoading(true);
-
-    const fetchList = async () => {
-      const response = await fetch("/dummy.json");
-      const data = await response.json();
-      setProductList(data);
-      setLoading(false);
-    };
-
-    const delay = setTimeout(fetchList, 555);
-    return () => clearTimeout(delay);
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-
+const ProductList: React.FC<Props> = ({ fav, list }) => {
   return (
     <Grid>
-      {productList.map((e, i) => (
-        <ProductListItem item={e} key={i} />
+      {list.map((e, i) => (
+        <ProductListItem key={i} item={e} fav={fav} />
       ))}
     </Grid>
   );
