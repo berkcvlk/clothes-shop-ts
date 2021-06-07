@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1001",
+    "title": "Contrast Print T-Shirt",
+    "description": "Oversize round neck t-shirt with short sleeves and a contrast front print.",
+    "price": 69.99
+  },
+  {
+    "id": "1002",
+    "title": "Stripe Print T-Shirt",
+    "description": "Loose-Fitting short sleeve t-shirt wit a round neck.",
+    "price": 49.99
+  },
+  {
+    "id": "1003",
+    "title": "Knit T-Shirt with Slogan",
+    "description": "Knit t-shirt made of spun cotton fabric. Round neck and short sleeves. Ribbed trims.",
+    "price": 39.99
+  },
+  {
+    "id": "1004",
+    "title": "Stripe Print T-Shirt",
+    "description": "Loose-Fitting short sleeve t-shirt wit a round neck.",
+    "price": 69.99
+  },
+  {
+    "id": "1005",
+    "title": "T-Shirt with Irregular Collar",
+    "description": "Faded t-shirt with an irregular collar and short turn-up sleeves.",
+    "price": 69.99
+  },
+  {
+    "id": "1006",
+    "title": "Ombre Print T-Shirt",
+    "description": "Loose-Fitting short sleeve t-shirt wit a round neck.",
+    "price": 39.99
+  },
+  {
+    "id": "1007",
+    "title": "T-Shirt with Irregular Collar",
+    "description": "Faded t-shirt with an irregular collar and short turn-up sleeves.",
+    "price": 59.99
+  },
+  {
+    "id": "1008",
+    "title": "T-Shirt with Irregular Collar",
+    "description": "Faded t-shirt with an irregular collar and short turn-up sleeves.",
+    "price": 49.99
+  }
+]
