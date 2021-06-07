@@ -36,8 +36,8 @@ const Provider: React.FC = ({ children }) => {
   };
 
   const onIsFavorite = (id: string) => {
-    const item = favoriteList.findIndex((e) => e.id === id);
-    return !(item === -1);
+    const index = favoriteList.findIndex((e) => e.id === id);
+    return !(index === -1);
   };
 
   return (
