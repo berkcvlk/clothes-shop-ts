@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const Card = styled.div`
+const Card = styled(motion.div)`
   position: relative;
 
   background-color: #f8f8f8;

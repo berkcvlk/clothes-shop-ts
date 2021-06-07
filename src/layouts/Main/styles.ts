@@ -1,10 +1,11 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const Wrapper = styled.main`
   padding-top: 5px;
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   padding-top: 15px;
 `;
 

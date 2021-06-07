@@ -1,19 +1,22 @@
-import { useContext } from "react";
-import { CartContext } from "../../../contexts/Cart";
-
 import CartListItem from "./CartListItem";
 import TableHeaders from "./Table/TableHeaders";
 
-const CartList = () => {
-  const { items } = useContext(CartContext);
+import { ICartItem } from "../../../types";
+import { Wrapper } from "./styles";
+import { products } from "../../../motion/variants";
 
+interface Props {
+  list: ICartItem[];
+}
+
+const CartList: React.FC<Props> = ({ list }) => {
   return (
-    <>
+    <Wrapper initial="hidden" animate="visible" variants={products}>
       <TableHeaders />
-      {items.map((item, i) => (
+      {list.map((item, i) => (
         <CartListItem item={item} key={i} />
       ))}
-    </>
+    </Wrapper>
   );
 };
 export default CartList;

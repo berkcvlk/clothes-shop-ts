@@ -1,5 +1,6 @@
 import { ICartItem } from "../../../../types";
 import { images } from "../../../../utils/image";
+import { card } from "../../../../motion/variants";
 
 import Amount from "./Amount";
 import * as s from "./styles";
@@ -10,7 +11,7 @@ interface Props {
 
 const CartListItem: React.FC<Props> = ({ item }) => {
   return (
-    <s.Grid>
+    <s.Grid variants={card}>
       <s.Detail>
         <s.DetailImage src={images(item.id, "120")} />
         <s.DetailBody>

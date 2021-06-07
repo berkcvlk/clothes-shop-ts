@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -25,6 +26,10 @@ export const WrapperLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+`;
+
+export const WrapperLinkContainer = styled(motion.div)`
+  position: relative;
 `;
 
 export const SpanFirst = styled.span`

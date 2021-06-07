@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { CartContext } from "../../../contexts/Cart";
-
 import Button from "../../UI/Button";
 import { SpanTotal, TotalPrice, Wrapper } from "./styles";
 
-const Total = () => {
-  const { total } = useContext(CartContext);
+interface Props {
+  total: number;
+}
 
+const Total: React.FC<Props> = ({ total }) => {
   return (
     <Wrapper>
       <SpanTotal>Total</SpanTotal>

@@ -5,19 +5,18 @@ import Heart from "../../../UI/Icons/Heart";
 import ProductOverlay from "./ProductOverlay";
 import { Image, Detail, Title, Description, Price, Badge } from "./styles";
 
-import { images } from "../../../../utils/image";
+import { card } from "../../../../motion/variants";
 import { IProduct } from "../../../../types";
+import { images } from "../../../../utils/image";
 
 interface Props {
   item: IProduct;
   fav?: boolean;
 }
 
-const ProductListItem: React.FC<Props> = ({
-  item: { id, title, description, price },
-  fav,
-}) => {
+const ProductListItem: React.FC<Props> = ({ item, fav }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { id, title, description, price } = item;
 
   const onMouseOverHandler = () => {
     setIsHovered(true);
@@ -40,7 +39,12 @@ const ProductListItem: React.FC<Props> = ({
   );
 
   return (
-    <Card onMouseOver={onMouseOverHandler} onMouseLeave={onMouseLeaveHandler}>
+    <Card
+      layout
+      variants={card}
+      onMouseOver={onMouseOverHandler}
+      onMouseLeave={onMouseLeaveHandler}
+    >
       {badge}
       {quickViewOverlay}
       <Image src={images(id, "320")} alt={title} />

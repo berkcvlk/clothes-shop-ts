@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import IconButton from "../Button/IconButton/IconButton";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled(motion.div)`
   position: fixed;
   top: 200px;
   left: 0;
@@ -14,11 +15,11 @@ export const Wrapper = styled.div`
 
   padding: 45px;
 
-  background-color: white;
+  background-color: #f4f4f4;
   border-radius: 15px;
 `;
 
-export const Content = styled.div`
+export const Content = styled(motion.div)`
   position: relative;
 
   width: 100%;

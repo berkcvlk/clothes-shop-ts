@@ -1,6 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router";
-import { Backdrop, WrapperLink, SpanFirst, SpanLast } from "./styles";
+
+import {
+  Backdrop,
+  WrapperLinkContainer,
+  WrapperLink,
+  SpanFirst,
+  SpanLast,
+} from "./styles";
+
+import { productOverlayLink } from "../../../../../motion/variants";
 
 interface Props {
   itemId: string;
@@ -13,18 +22,20 @@ const ProductOverlay: React.FC<Props> = ({ itemId }) => {
 
   return (
     <Backdrop>
-      <WrapperLink
-        // Set the background property to show modal over the
-        // current location render. Without this one, react-router
-        // will change the url, but will unmount the previous component as well
-        to={{
-          pathname: `/quickview/${itemId}`,
-          state: { background: location },
-        }}
-      >
-        <SpanFirst>Click To</SpanFirst>
-        <SpanLast>Quick View</SpanLast>
-      </WrapperLink>
+      <WrapperLinkContainer variants={productOverlayLink}>
+        <WrapperLink
+          // Set the background property to show modal over the
+          // current location render. Without this one, react-router
+          // will change the url, but will unmount the previous component as well
+          to={{
+            pathname: `/quickview/${itemId}`,
+            state: { background: location },
+          }}
+        >
+          <SpanFirst>Click To</SpanFirst>
+          <SpanLast>Quick View</SpanLast>
+        </WrapperLink>
+      </WrapperLinkContainer>
     </Backdrop>
   );
 };

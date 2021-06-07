@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import { useHistory } from "react-router";
+import { modal } from "../../../motion/variants";
 
 import Close from "../Icons/Close";
 import { Wrapper, Backdrop, Content, CloseIconButton } from "./styles";
@@ -14,7 +15,7 @@ const Modal: React.FC = ({ children }) => {
   const ModalRender = (
     <>
       <Backdrop onClick={goBackHandler} />
-      <Wrapper>
+      <Wrapper animate="visible" initial="hidden" variants={modal}>
         <Content>
           <CloseIconButton onClick={goBackHandler}>
             <Close />
