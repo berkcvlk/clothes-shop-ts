@@ -1,11 +1,13 @@
+import axios from "axios";
 import { IProduct } from "../types";
 
-const URL = `https://${process.env.REACT_APP_MOCKAPI_KEY}.mockapi.io/`;
+const BASE = `https://${process.env.REACT_APP_MOCKAPI_KEY}.mockapi.io/`;
 const end = "products";
+// const LOCAL = "/dummy.json";
 
 export const fetchProducts = async () => {
-  const res = await fetch(URL + end);
-  const data: IProduct[] = await res.json();
+  const res = await axios.get(BASE + end);
+  const data: IProduct[] = await res.data;
 
   return data;
 };
