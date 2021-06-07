@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Button from "../../UI/Button";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -15,14 +14,6 @@ export const ImageContainer = styled.div`
 export const Image = styled.img`
   width: 100%;
   border-radius: 12px;
-`;
-
-export const AddFavoriteButton = styled(Button)`
-  position: absolute;
-  bottom: 25px;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
 `;
 
 export const Detail = styled.div`
@@ -53,4 +44,10 @@ export const Price = styled.p`
 
   font-size: 24px;
   font-weight: 700;
+`;
+
+export const ButtonWrapper = styled.div`
+  button + button {
+    margin-top: 15px;
+  }
 `;
