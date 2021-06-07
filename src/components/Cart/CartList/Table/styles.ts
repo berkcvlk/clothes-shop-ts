@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: 50% 25% 25%;
-  grid-template-rows: auto;
-  row-gap: 20px;
+  height: 30px;
 `;
 
 export const TableHeader = styled.span`
