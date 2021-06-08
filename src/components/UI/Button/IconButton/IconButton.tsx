@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Button from "../Button";
 
 const IconButton = styled(Button)`
+  min-width: fit-content !important;
+
   display: flex;
   align-items: center;
   justify-content: center;

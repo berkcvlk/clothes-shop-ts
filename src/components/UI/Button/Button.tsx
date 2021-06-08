@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const Button = styled.button<{ theme?: "primary" }>`
+  min-width: 200px;
+
   border: none;
   outline: none;
 
@@ -27,7 +29,7 @@ const Button = styled.button<{ theme?: "primary" }>`
     transform: scale(0.96);
   }
 
-  transition: all 0.1s;
+  transition: all 0.225s;
 `;
 
 export default Button;
