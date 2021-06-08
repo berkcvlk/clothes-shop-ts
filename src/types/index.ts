@@ -24,7 +24,7 @@ export interface ICartItem {
   amount: number;
 }
 
-export type IStage = "initial" | "adding" | "added";
+export type IStage = "initial" | "added";
 
 export interface ICartContext {
   items: ICartItem[];
