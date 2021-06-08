@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
-import { IProduct } from "../../types";
 import { ProductContext } from "../Product";
+import { IProduct } from "../../types";
 import { INITIAL_STATE } from "./initial";
 
 // Contains
@@ -12,40 +12,42 @@ import { INITIAL_STATE } from "./initial";
 export const FavoriteContext = createContext(INITIAL_STATE);
 
 const Provider: React.FC = ({ children }) => {
-  const [favoriteList, setFavoriteList] = useState<IProduct[]>([]);
+  const [items, setItems] = useState<IProduct[]>([]);
 
   // Use product context to get item
   // There can be no reason to store favorite
   // list. ID's can do the same thing.
   // This can change, later...
-  const { items } = useContext(ProductContext);
+  const { items: products } = useContext(ProductContext);
 
-  const onAddHandler = (id: string) => {
+  const onAdd = (id: string) => {
+    const product = products.find((e) => e.id === id);
     const item = items.find((e) => e.id === id);
-    const itemFav = favoriteList.find((e) => e.id === id);
-    if (!item || itemFav) return;
+    if (!product || item) return;
 
-    setFavoriteList((prev) => [...prev, item!]);
+    // Add product that get from product list
+    setItems((prev) => [...prev, product]);
   };
 
-  const onRemoveHandler = (id: string) => {
-    const item = favoriteList.find((e) => e.id === id);
+  const onRemove = (id: string) => {
+    const item = items.find((e) => e.id === id);
     if (!item) return;
 
-    setFavoriteList((prev) => prev.filter((e) => e.id !== id));
+    setItems((prev) => prev.filter((e) => e.id !== id));
   };
 
+  // Check if the item on the favorite list or not
   const onIsFavorite = (id: string) => {
-    const index = favoriteList.findIndex((e) => e.id === id);
+    const index = items.findIndex((e) => e.id === id);
     return !(index === -1);
   };
 
   return (
     <FavoriteContext.Provider
       value={{
-        items: favoriteList,
-        add: onAddHandler,
-        remove: onRemoveHandler,
+        items,
+        add: onAdd,
+        remove: onRemove,
         isFavorite: onIsFavorite,
       }}
     >
