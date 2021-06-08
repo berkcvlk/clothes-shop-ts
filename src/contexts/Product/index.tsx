@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
-import { fetchProducts } from "../../api/product";
 
 import { IProduct } from "../../types";
 import { INITIAL_STATE } from "./initial";
+import { fetchProducts } from "../../api/product";
 
 // Contains
 // items: IProduct[] - list of products
@@ -10,30 +10,24 @@ import { INITIAL_STATE } from "./initial";
 export const ProductContext = createContext(INITIAL_STATE);
 
 const Provider: React.FC = ({ children }) => {
-  const [productList, setProductList] = useState<IProduct[]>([]);
+  const [items, setItems] = useState<IProduct[]>([]);
 
-  // Get product list from "dummy.json"
+  // Get product list from "mockapi"
   // on first load of the application
   useEffect(() => {
     (async () => {
-      try {
-        const data = await fetchProducts();
-        setProductList(data);
-      } catch (err) {
-        console.log(err);
-      }
+      const data = await fetchProducts();
+      setItems(data);
     })();
   }, []);
 
   const getItemById = (id: string) => {
-    const [item] = productList.filter((e) => e.id === id);
+    const [item] = items.filter((e) => e.id === id);
     return item;
   };
 
   return (
-    <ProductContext.Provider
-      value={{ items: productList, getById: getItemById }}
-    >
+    <ProductContext.Provider value={{ items: items, getById: getItemById }}>
       {children}
     </ProductContext.Provider>
   );
