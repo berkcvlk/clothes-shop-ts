@@ -4,7 +4,8 @@ import IconButton from "../Button/IconButton/IconButton";
 
 export const Wrapper = styled(motion.div)`
   position: fixed;
-  top: 200px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   left: 0;
