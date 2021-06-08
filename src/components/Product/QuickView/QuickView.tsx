@@ -4,8 +4,8 @@ import { useContext } from "react";
 import { ProductContext } from "../../../contexts/Product";
 
 import Modal from "../../UI/Modal";
-import FavoriteButton from "../../UI/Button/FavoriteButton/FavoriteButton";
-import CartButton from "../../UI/Button/CartButton/CartButton";
+import FavoriteButton from "../../UI/Button/FavoriteButton";
+import CartButton from "../../UI/Button/CartButton";
 import * as s from "./styles";
 
 import { images } from "../../../utils/image";
