@@ -1,6 +1,6 @@
 import { createContext, useCallback, useEffect, useState } from "react";
 
-import { ICartItem } from "../../types";
+import { ICartItem, IStage } from "../../types";
 import { INITIAL_STATE } from "./initial";
 
 import { incrementAmount, decrementAmount } from "../../utils/cart";
@@ -15,16 +15,19 @@ export const CartContext = createContext(INITIAL_STATE);
 const Provider: React.FC = ({ children }) => {
   const [cartList, setCartList] = useState<ICartItem[]>([]);
   const [total, setTotal] = useState<number>(0);
+  const [stage, setStage] = useState<IStage>("initial");
 
   const onAddHandler = (i: ICartItem) => {
     const item = cartList.find((e) => e.id === i.id);
 
     if (!item) {
       setCartList((prev) => [...prev, i]);
+      setStage("added");
       return;
     }
 
     setCartList(incrementAmount(cartList, i.id));
+    setStage("added");
   };
 
   const onRemoveHandler = (id: string) => {
@@ -47,12 +50,21 @@ const Provider: React.FC = ({ children }) => {
   }, [cartList]);
 
   useEffect(() => setTotal(calculateTotal()), [calculateTotal]);
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (stage === "added") {
+      timer = setTimeout(() => setStage("initial"), 550);
+    }
+
+    return () => clearTimeout(timer);
+  }, [stage]);
 
   return (
     <CartContext.Provider
       value={{
         items: cartList,
         total: total,
+        stage: stage,
         add: onAddHandler,
         remove: onRemoveHandler,
       }}
