@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
 import { useContext } from "react";
 
-import { FavoriteContext } from "../../../contexts/Favorite";
 import { CartContext } from "../../../contexts/Cart";
 import { ProductContext } from "../../../contexts/Product";
 
@@ -10,6 +9,7 @@ import Modal from "../../UI/Modal";
 import * as s from "./styles";
 
 import { images } from "../../../utils/image";
+import FavoriteButton from "../../UI/Button/FavoriteButton/FavoriteButton";
 
 const QuickView = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,22 +17,6 @@ const QuickView = () => {
 
   // Item to render on quickview
   const { title, price, description } = getById(id);
-
-  // To manipulate favorite list, use this functions
-  const {
-    add: addFav,
-    remove: removeFav,
-    isFavorite,
-  } = useContext(FavoriteContext);
-  const fav = isFavorite(id);
-
-  const onFavoriteAdd = () => {
-    addFav(id);
-  };
-
-  const onFavoriteRemove = () => {
-    removeFav(id);
-  };
 
   // To add item to the cart list
   const { add: addCartItem } = useContext(CartContext);
@@ -45,12 +29,6 @@ const QuickView = () => {
       amount: 1,
     });
   };
-
-  const buttonSwitch = (
-    <Button onClick={fav ? onFavoriteRemove : onFavoriteAdd}>
-      {fav ? "Remove from Favorites" : "Add to Favorite"}
-    </Button>
-  );
 
   return (
     <Modal>
@@ -66,7 +44,7 @@ const QuickView = () => {
             <Button theme="primary" onClick={onAddCartItem}>
               Add to Cart
             </Button>
-            {buttonSwitch}
+            <FavoriteButton id={id} />
           </s.ButtonWrapper>
         </s.Detail>
       </s.Wrapper>
