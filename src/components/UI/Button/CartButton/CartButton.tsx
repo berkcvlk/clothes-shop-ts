@@ -34,7 +34,14 @@ const CartButton: FC<Props> = ({ item: { id, title, price } }) => {
         Add to Cart
       </Button>
     ) : (
-      <Button style={{ backgroundColor: "#76C893", color: "white" }}>
+      <Button
+        style={{
+          backgroundColor: "#76C893",
+          color: "white",
+          cursor: "progress",
+        }}
+        disabled
+      >
         Added
       </Button>
     );
